@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'spoon'
 
 android {
     compileSdkVersion 29
@@ -67,4 +68,37 @@ dependencies {
     // Timber to log
     debugImplementation 'com.jakewharton.timber:timber:4.7.1'
 
+}
+
+
+spoon {
+
+    title = "Demo Test"
+
+    // for debug output
+    debug = true
+
+    // To execute the tests device by device */
+    sequential = true
+
+    // To grant permissions to Android M >= devices */
+    grantAllPermissions = true
+
+    // Clear data before each test
+    clearAppDataBeforeEachTest = true
+
+    if(project.hasProperty('locale')) {
+        instrumentationArgs.add("locale:" + project.locale)
+    }
+    if(project.hasProperty('suite')) {
+        instrumentationArgs.add("suite:" + project.suite)
+    }
+
+    if (project.hasProperty('variable1')) {
+        methodName = project.variable1
+    }
+
+    if (project.hasProperty('title')) {
+        title = project.title
+    }
 }
