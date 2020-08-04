@@ -58,7 +58,13 @@ dependencies {
     implementation "com.google.android.material:material:$rootProject.materialVersion"
 
     // Testing
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
+
+    // Spoon
+    implementation 'com.squareup.spoon:spoon-client:1.6.4'
+
+    // Timber to log
+    debugImplementation 'com.jakewharton.timber:timber:4.7.1'
 
 }
