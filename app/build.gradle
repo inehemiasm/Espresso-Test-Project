@@ -10,12 +10,12 @@ android {
 
     defaultConfig {
         applicationId "com.example.inehemias.testingdemo"
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.example.inehemias.testingdemo.testUtils.BaseTestClass"
     }
     packagingOptions {
         exclude 'META-INF/atomicfu.kotlin_module'
@@ -35,12 +35,14 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.3.1'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
 
     // Room components
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    androidTestImplementation 'androidx.test:rules:1.3.0-rc01'
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
@@ -87,13 +89,17 @@ spoon {
     // Clear data before each test
     clearAppDataBeforeEachTest = true
 
+    // Run test example
+    //spoonDebugAndroidTest -Ptitle="US Regression Tests" -Plocale="en_us" -Ptag="Regression"
+
     if(project.hasProperty('locale')) {
         instrumentationArgs.add("locale:" + project.locale)
     }
-    if(project.hasProperty('suite')) {
-        instrumentationArgs.add("suite:" + project.suite)
+    if(project.hasProperty('tag')) {
+        instrumentationArgs.add("suite:" + project.tag)
     }
 
+    // Can pass N variables as command arguments
     if (project.hasProperty('variable1')) {
         methodName = project.variable1
     }
