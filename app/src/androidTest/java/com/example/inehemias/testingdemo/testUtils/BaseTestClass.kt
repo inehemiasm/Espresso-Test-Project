@@ -14,5 +14,4 @@ class BaseTestClass : AndroidJUnitRunner() {
         locale = arguments?.getString("locale") ?: "en_us"
         testTag = arguments?.getString("tag") ?: "Regression"
     }
-
 }

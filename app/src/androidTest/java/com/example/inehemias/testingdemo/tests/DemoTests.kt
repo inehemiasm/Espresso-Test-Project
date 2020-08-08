@@ -18,7 +18,7 @@ class DemoTests : DemoPage() {
     private val locale by lazy { UiTestSetup.locale }
     private val testTag by lazy { UiTestSetup.tags[0] }
 
-    private lateinit var activityScenario : ActivityScenario<MainActivity>
+    private lateinit var activityScenario: ActivityScenario<MainActivity>
     private lateinit var localizedText: String
 
     @Before
@@ -51,7 +51,6 @@ class DemoTests : DemoPage() {
         addNewWord(portugueseText)
         verifyWordAppearsOnScreen(localizedText)
         waitForPageToLoad(3)
-
     }
 
     @Test
