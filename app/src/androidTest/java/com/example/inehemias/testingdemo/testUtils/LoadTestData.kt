@@ -1,9 +1,9 @@
 package com.example.inehemias.testingdemo.testUtils
 
 import androidx.test.platform.app.InstrumentationRegistry
-import timber.log.Timber
 import java.io.IOException
 import java.util.Properties
+import timber.log.Timber
 
 object LoadTestData {
 
