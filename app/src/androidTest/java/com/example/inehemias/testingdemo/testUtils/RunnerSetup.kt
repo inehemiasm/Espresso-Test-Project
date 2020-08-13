@@ -1,5 +1,4 @@
 package com.example.inehemias.testingdemo.testUtils
-
 import org.junit.runner.notification.RunNotifier
 import org.junit.runners.BlockJUnit4ClassRunner
 import org.junit.runners.model.FrameworkMethod
