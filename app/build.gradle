@@ -15,7 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "com.example.inehemias.testingdemo.testUtils.BaseTestClass"
+        testInstrumentationRunner "com.example.inehemias.testingdemo.testUtils.ArgumentsLoaderClass"
     }
     packagingOptions {
         exclude 'META-INF/atomicfu.kotlin_module'
@@ -33,7 +33,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.1'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
@@ -42,7 +42,7 @@ dependencies {
 
     // Room components
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
-    androidTestImplementation 'androidx.test:rules:1.3.0-rc01'
+    androidTestImplementation 'androidx.test:rules:1.3.0-rc03'
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
@@ -65,7 +65,11 @@ dependencies {
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
 
     // Spoon
-    implementation 'com.squareup.spoon:spoon-client:1.6.4'
+    implementation 'com.squareup.spoon:spoon-client:1.7.1'
+
+    // Falcon Spoon Rule
+    androidTestImplementation 'com.jraska:falcon:2.1.1'
+    androidTestImplementation 'com.jraska:falcon-spoon-compat:2.1.1'
 
     // Timber to log
     debugImplementation 'com.jakewharton.timber:timber:4.7.1'
@@ -96,7 +100,7 @@ spoon {
         instrumentationArgs.add("locale:" + project.locale)
     }
     if(project.hasProperty('tag')) {
-        instrumentationArgs.add("suite:" + project.tag)
+        instrumentationArgs.add("tag:" + project.tag)
     }
 
     // Can pass N variables as command arguments

@@ -3,7 +3,7 @@ package com.example.inehemias.testingdemo.testUtils
 import android.os.Bundle
 import androidx.test.runner.AndroidJUnitRunner
 
-class BaseTestClass : AndroidJUnitRunner() {
+class ArgumentsLoaderClass : AndroidJUnitRunner() {
     companion object {
         lateinit var locale: String
         lateinit var testTag: String

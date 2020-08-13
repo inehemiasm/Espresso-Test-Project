@@ -1,12 +1,15 @@
 package com.example.inehemias.testingdemo.testUtils
 
+import android.app.Activity
 import android.view.View
 import android.widget.TextView
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.matcher.ViewMatchers
-import java.lang.StringBuilder
+import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
+import androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry
+import androidx.test.runner.lifecycle.Stage
 import org.hamcrest.Matcher
 import timber.log.Timber
 
@@ -40,4 +43,17 @@ open class BasicTestActions {
         })
         return stringHolder.toString()
     }
+    fun getCurrentActivity(): Activity? {
+        val currentActivity = arrayOf<Activity?>(null)
+        getInstrumentation().runOnMainSync(Runnable {
+            val resumedActivities: Collection<Activity> =
+                ActivityLifecycleMonitorRegistry.getInstance()
+                    .getActivitiesInStage(Stage.RESUMED)
+            if (resumedActivities.iterator().hasNext()) {
+                currentActivity[0] = resumedActivities.iterator().next() as Activity?
+            }
+        })
+        return currentActivity[0]
+    }
+
 }
