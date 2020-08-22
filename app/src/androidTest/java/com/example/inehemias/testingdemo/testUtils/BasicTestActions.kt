@@ -55,5 +55,4 @@ open class BasicTestActions {
         })
         return currentActivity[0]
     }
-
 }

@@ -4,7 +4,7 @@ object UiTestSetup {
     // keep this in alphabetical order
     val tags = arrayOf(
         ArgumentsLoaderClass.testTag
-        //"Smoke_BR"
+        // "Smoke_BR"
         // "Smoke_DE",
         // "Regression"
     )

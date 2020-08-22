@@ -17,7 +17,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import timber.log.Timber
 
-
 @RunWith(RunnerSetup::class)
 class DemoTests : DemoPage() {
     private val locale by lazy { UiTestSetup.locale }
