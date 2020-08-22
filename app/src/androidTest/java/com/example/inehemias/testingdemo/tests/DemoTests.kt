@@ -9,7 +9,6 @@ import com.example.inehemias.testingdemo.testUtils.RunnerSetup
 import com.example.inehemias.testingdemo.testUtils.TestTags
 import com.example.inehemias.testingdemo.testUtils.UiTestSetup
 import com.example.inehemias.testingdemo.ui.MainActivity
-import com.jraska.falcon.FalconSpoonRule
 import com.squareup.spoon.Spoon
 import org.junit.After
 import org.junit.Before
@@ -43,7 +42,7 @@ class DemoTests : DemoPage() {
     }
 
     @Test
-    @TestTags(runTags = ["Regression", "SMOKE_BR", "SMOKE_DE"])
+    @TestTags(runTags = ["Regression"])
     fun verifyThisTestWillRunForUS() {
         Timber.d("Running tests for $locale ")
         waitForPageToLoad(2)
