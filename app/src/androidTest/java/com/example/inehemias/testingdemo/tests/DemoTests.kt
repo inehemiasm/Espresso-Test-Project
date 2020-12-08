@@ -36,7 +36,7 @@ class DemoTests : DemoPage() {
     fun verifyThisTestWillRunForUS() {
         Timber.d("Running tests for $locale")
         waitForPageToLoad(2)
-        val englishText = "Welcome to my app1"
+        val englishText = "Welcome to my app"
         addNewWord(englishText)
         verifyWordAppearsOnScreen(localizedText)
         Spoon.screenshot(getCurrentActivity(), "Saved")
