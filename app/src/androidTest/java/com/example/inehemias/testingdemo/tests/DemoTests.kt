@@ -1,16 +1,13 @@
 package com.example.inehemias.testingdemo.tests
 
 import android.Manifest
-import androidx.test.core.app.ActivityScenario
 import androidx.test.rule.GrantPermissionRule
 import com.example.inehemias.testingdemo.pages.DemoPage
 import com.example.inehemias.testingdemo.testUtils.LoadTestData.getLocalizedProperty
 import com.example.inehemias.testingdemo.testUtils.RunnerSetup
 import com.example.inehemias.testingdemo.testUtils.TestTags
 import com.example.inehemias.testingdemo.testUtils.UiTestSetup
-import com.example.inehemias.testingdemo.ui.MainActivity
 import com.squareup.spoon.Spoon
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -21,7 +18,6 @@ import timber.log.Timber
 class DemoTests : DemoPage() {
     private val locale by lazy { UiTestSetup.locale }
 
-    private lateinit var activityScenario: ActivityScenario<MainActivity>
     private lateinit var localizedText: String
 
     @get:Rule
@@ -32,18 +28,13 @@ class DemoTests : DemoPage() {
 
     @Before
     fun initializeVariables() {
-        activityScenario = ActivityScenario.launch(MainActivity::class.java)
         localizedText = getLocalizedProperty("welcome")
-    }
-    @After
-    fun cleanUp() {
-        activityScenario.close()
     }
 
     @Test
     @TestTags(runTags = ["Regression"])
     fun verifyThisTestWillRunForUS() {
-        Timber.d("Running tests for $locale ")
+        Timber.d("Running tests for $locale")
         waitForPageToLoad(2)
         val englishText = "Welcome to my app"
         addNewWord(englishText)
