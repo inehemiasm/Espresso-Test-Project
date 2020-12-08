@@ -10,13 +10,13 @@ import androidx.test.runner.screenshot.ScreenCaptureProcessor
 import androidx.test.runner.screenshot.Screenshot
 import androidx.test.uiautomator.UiDevice
 import com.example.inehemias.testingdemo.ui.MainActivity
-import org.junit.rules.TestWatcher
-import org.junit.runner.Description
 import java.io.File
 import java.io.IOException
+import org.junit.rules.TestWatcher
+import org.junit.runner.Description
 
 class ScreenshotRule : TestWatcher() {
-    private val mainActivity  = MainActivity::class.java
+    private val mainActivity = MainActivity::class.java
     private lateinit var activityScenario: ActivityScenario<MainActivity>
 
     private lateinit var description: Description
