@@ -94,7 +94,7 @@ spoon {
     clearAppDataBeforeEachTest = true
 
     // Run test example
-    //spoonDebugAndroidTest -Ptitle="US Regression Tests" -Plocale="en_us" -Ptag="Regression"
+    //spoonDebugAndroidTest -Ptitle="US Regression Tests" -Plocale="pt_br" -Ptag="SMOKE_BR"
 
     if(project.hasProperty('locale')) {
         instrumentationArgs.add("locale:" + project.locale)

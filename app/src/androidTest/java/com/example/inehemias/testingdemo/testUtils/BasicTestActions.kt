@@ -11,9 +11,13 @@ import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry
 import androidx.test.runner.lifecycle.Stage
 import org.hamcrest.Matcher
+import org.junit.Rule
 import timber.log.Timber
 
 open class BasicTestActions {
+
+    @get:Rule
+    val screenshotRule = ScreenshotRule()
 
     fun waitForPageToLoad(seconds: Int) {
         var seconds = if (seconds < 0) 0 else seconds
