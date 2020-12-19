@@ -4,13 +4,13 @@ Espresso is a powerful open source framework to test your native android apps. H
 
 REQUIREMENTS
 
-```bash
-Android Studio
+```
+Android SDK tools, JAVA SDK
 ```
 
 ## Usage
 
-```python
+```bash
 # Example test to run test for Brazil locale
 
 .gradlew spoonDebugAndroidTest -Ptitle=Brazil-Test -Plocale=pt_br -Psuite=SMOKE_BR
