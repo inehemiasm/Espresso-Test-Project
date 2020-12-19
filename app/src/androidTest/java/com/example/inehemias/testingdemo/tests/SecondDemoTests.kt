@@ -3,7 +3,7 @@ package com.example.inehemias.testingdemo.tests
 import android.Manifest
 import androidx.test.rule.GrantPermissionRule
 import com.example.inehemias.testingdemo.pages.DemoPage
-import com.example.inehemias.testingdemo.testUtils.LoadTestData.getLocalizedProperty
+import com.example.inehemias.testingdemo.testUtils.LoadTestData
 import com.example.inehemias.testingdemo.testUtils.RunnerSetup
 import com.example.inehemias.testingdemo.testUtils.TestTags
 import com.example.inehemias.testingdemo.testUtils.UiTestSetup
@@ -14,9 +14,9 @@ import org.junit.runner.RunWith
 import timber.log.Timber
 
 @RunWith(RunnerSetup::class)
-class DemoTests : DemoPage() {
-    private val locale by lazy { UiTestSetup.locale }
+class SecondDemoTests : DemoPage() {
 
+    private val locale by lazy { UiTestSetup.locale }
     private lateinit var localizedText: String
 
     @get:Rule
@@ -27,15 +27,15 @@ class DemoTests : DemoPage() {
 
     @Before
     fun initializeVariables() {
-        localizedText = getLocalizedProperty("welcome")
+        localizedText = LoadTestData.getLocalizedProperty("second_note")
     }
 
     @Test
     @TestTags(runTags = ["Regression"])
-    fun verifySecondNoteForUS() {
+    fun verifyThisTestWillRunForUS() {
         Timber.d("Running tests for $locale")
         waitForPageToLoad(2)
-        val englishText = "Welcome to my app"
+        val englishText = "This is a second Note!!!"
         addNewWord(englishText)
         verifyWordAppearsOnScreen(localizedText)
         waitForPageToLoad(3) // Just to keep the screen open
@@ -43,10 +43,10 @@ class DemoTests : DemoPage() {
 
     @Test
     @TestTags(runTags = ["SMOKE_BR"])
-    fun verifySecondNoteForBrazil() {
+    fun verifyThisTestWillRunForBrazil() {
         Timber.d("Running tests for $locale ")
         waitForPageToLoad(2)
-        val portugueseText = "Bem vindo ao meu aplicativo"
+        val portugueseText = "Esta e uma segunda nota!!!"
         addNewWord(portugueseText)
         verifyWordAppearsOnScreen(localizedText)
         waitForPageToLoad(3) // Just to keep the screen open
@@ -54,10 +54,10 @@ class DemoTests : DemoPage() {
 
     @Test
     @TestTags(runTags = ["SMOKE_DE"])
-    fun verifySecondNoteRunForDE() {
+    fun verifyThisTestWillRunForDE() {
         Timber.d("Running tests for $locale ")
         waitForPageToLoad(2)
-        val deutschText = "Welkom bij mijn app"
+        val deutschText = "Dit is een tweede notitie!!!"
         addNewWord(deutschText)
         verifyWordAppearsOnScreen(localizedText)
         waitForPageToLoad(3) // Just to keep the screen open

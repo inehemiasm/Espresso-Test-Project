@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'spoon'
+apply plugin: "com.osacky.fladle"
 
 android {
     compileSdkVersion 29
@@ -65,7 +66,7 @@ dependencies {
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
 
     // Spoon
-    implementation 'com.squareup.spoon:spoon-client:1.7.1'
+    implementation 'com.squareup.spoon:spoon-client:2.0.0-SNAPSHOT'
 
     // Falcon Spoon Rule
     androidTestImplementation 'com.jraska:falcon:2.1.1'
@@ -76,6 +77,27 @@ dependencies {
 
 }
 
+fladle {
+    flankVersion = "20.08.4"
+    projectId = "testing-demo-1ad9c"
+    useOrchestrator = false
+    environmentVariables = [
+            "locale": System.getenv("locale"),
+            "tag": System.getenv("tag"),
+            "clearPackageData": "true"
+    ]
+    devices = [
+            [ "model": "Nexus5", "version": "23" ]
+    ]
+    smartFlankGcsPath = "gs://test-lab-jii9hzajx94cq-i94cbpn55t9cs/2020-12-13_05-39-15.613495_jppE/JUnitReport.xml"
+    configs {
+
+    }
+    flakyTestAttempts = 1
+    directoriesToPull = [
+            '/sdcard/app_spoon-screenshots'
+    ]
+}
 
 spoon {
 
