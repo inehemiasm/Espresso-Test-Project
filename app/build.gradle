@@ -139,7 +139,6 @@ devicefarm {
 
     // Required. You must specify either accessKey and secretKey OR roleArn. roleArn takes precedence.
     authentication {
-        accessKey "AKIA5JZEXDFM4JSZCWLP"
-        secretKey "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"
+
     }
 }
