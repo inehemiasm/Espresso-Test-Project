@@ -1,0 +1,20 @@
+type Blog @model @key(name: "byPos", fields: ["posID"]) @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
+  posID: ID!
+}
+
+type Post @model @key(name: "byPos", fields: ["blogID"]) @auth(rules: [{allow: public}]) @key(name: "byBlog", fields: ["blID"]) {
+  id: ID!
+  title: String!
+  blogID: ID!
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+  blID: ID!
+}
+
+type Comment @model @key(name: "byPost", fields: ["postID"]) @auth(rules: [{allow: public}]) {
+  id: ID!
+  postID: ID!
+  content: String!
+}

@@ -3,9 +3,9 @@ package com.example.inehemias.testingdemo.testUtils
 object UiTestSetup {
     // keep this in alphabetical order
     val tags = arrayOf(
-        ArgumentsLoaderClass.testTag,
+        ArgumentsLoaderClass.testTag
         // "Smoke_BR"
-         "Smoke_DE",
+        // "Smoke_DE",
         // "Regression"
     )
 

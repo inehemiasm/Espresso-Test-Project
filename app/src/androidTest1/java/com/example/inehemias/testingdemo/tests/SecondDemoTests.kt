@@ -8,13 +8,11 @@ import com.example.inehemias.testingdemo.testUtils.RunnerSetup
 import com.example.inehemias.testingdemo.testUtils.TestTags
 import com.example.inehemias.testingdemo.testUtils.UiTestSetup
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import timber.log.Timber
 
-@Ignore
 @RunWith(RunnerSetup::class)
 class SecondDemoTests : DemoPage() {
 
